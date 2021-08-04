@@ -1,16 +1,32 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 public class SeleniumTest {
-//DONE
+    //DONE
     @Test
     public void rozetkaTest1() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var search = webDriver.findElement(By.xpath
+        FindAndComprasion findAndComprasion = PageFactory.initElements(webDriver, FindAndComprasion.class);
+        Laptops laptops = PageFactory.initElements(webDriver, Laptops.class);
+        findAndComprasion.findProducts("acer swift");
+        Thread.sleep(1000);
+        laptops.openFirst();
+        Thread.sleep(1000);
+        findAndComprasion.addProductToList();
+        Thread.sleep(3000);
+        laptops.openSecond();
+        Thread.sleep(1000);
+        findAndComprasion.addProductToList();
+        Thread.sleep(1000);
+        findAndComprasion.compareProducts();
+
+
+        /*var search = webDriver.findElement(By.xpath
                 ("//input"));
         search.sendKeys("acer swift");
         var find = webDriver.findElement(By.xpath
@@ -39,7 +55,7 @@ public class SeleniumTest {
         Thread.sleep(1000);
         var element3 = webDriver.findElement(By.xpath
                 ("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/a/button"));
-        element3.click();
+        element3.click();*/
     }
 
     //DONE
@@ -48,7 +64,15 @@ public class SeleniumTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var phone = webDriver.findElement(By.linkText("Смартфоны, ТВ и электроника"));
+
+        FindPhone findPhone = PageFactory.initElements(webDriver, FindPhone.class);
+        BuyPage buy = PageFactory.initElements(webDriver, BuyPage.class);
+        findPhone.findSamsung();
+        buy.buyProduct();
+
+
+
+        /*var phone = webDriver.findElement(By.linkText("Смартфоны, ТВ и электроника"));
         phone.click();
         Thread.sleep(1000);
         var samsung = webDriver.findElement(By.linkText("Смартфоны Samsung S-серии"));
@@ -70,7 +94,7 @@ public class SeleniumTest {
         var email = webDriver.findElement(By.id("recipientPatronymic"));
         email.sendKeys("Отчество");
         var number = webDriver.findElement(By.id("recipientTel"));
-        number.sendKeys("0661234567");
+        number.sendKeys("0661234567");*/
     }
 
     //DONE
@@ -79,7 +103,16 @@ public class SeleniumTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var phone = webDriver.findElement(By.partialLinkText("Смартфоны, ТВ"));
+
+        FindPhone findPhone = PageFactory.initElements(webDriver, FindPhone.class);
+        AddWarranty warranty = PageFactory.initElements(webDriver, AddWarranty.class);
+        BuyPage buy = PageFactory.initElements(webDriver, BuyPage.class);
+        findPhone.findPhoneWithFilters();
+        warranty.add();
+        buy.buyAndCopy();
+
+
+        /*var phone = webDriver.findElement(By.partialLinkText("Смартфоны, ТВ"));
         phone.click();
         Thread.sleep(1000);
         var allPhone = webDriver.findElement(By.xpath("//rz-dynamic-widgets/rz-widget-list[1]/section/ul/li[1]/rz-list-tile/div/a[2]"));
@@ -93,11 +126,11 @@ public class SeleniumTest {
         Thread.sleep(1000);
         var model = webDriver.findElement(By.xpath("//section/rz-grid/ul/li[1]/app-goods-tile-default/div/div[2]"));
         model.click();
-        Thread.sleep(1000);
-        var service = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/app-additional-services/div/div/ul/li[2]/app-service-item/label"));
+        Thread.sleep(1000);*/
+        /*var service = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/app-additional-services/div/div/ul/li[2]/app-service-item/label"));
         service.click();
-        Thread.sleep(1000);
-        var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
+        Thread.sleep(1000);*/
+        /*var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
         buy.click();
         Thread.sleep(1000);
         var order = webDriver.findElement(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
@@ -112,26 +145,37 @@ public class SeleniumTest {
         var number = webDriver.findElement(By.id("recipientTel"));
         number.sendKeys("0661234567");
         var copyInfo = webDriver.findElement(By.xpath("//rz-checkout-orders-content/div/form/div/main/rz-checkout-order[1]/div/div[2]/rz-copy-order-button/div/button"));
-        copyInfo.click();
+        copyInfo.click();*/
     }
+
 
     @Test
     public void rozetkaTest4() throws InterruptedException {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var closeCross = webDriver.findElement(By.xpath("//*[@id=\"rz-banner\"]/span/span"));
-        closeCross.click();
-        var allPromotions = webDriver.findElement(By.xpath("//main-page-content/top-slider/ul/li/a"));
+
+        CloseCross cross = PageFactory.initElements(webDriver, CloseCross.class);
+        Promotions promotions = PageFactory.initElements(webDriver, Promotions.class);
+        BuyPage buy = PageFactory.initElements(webDriver, BuyPage.class);
+        cross.close();
+        promotions.findProposition();
+        buy.buyProduct();
+
+
+        /*var closeCross = webDriver.findElement(By.xpath("//*[@id=\"rz-banner\"]/span/span"));
+        closeCross.click();*/
+        /*var allPromotions = webDriver.findElement(By.xpath("//main-page-content/top-slider/ul/li/a"));
         allPromotions.click();
         Thread.sleep(1000);
-        var promotion = webDriver.findElement(By.xpath("//section/rz-grid/ul/li[5]/rz-promotion-tile/a/span/span"));
+        var promotion = webDriver.findElement(By.xpath("//rz-grid/ul/li[2]/rz-promotion-tile/a/span/span"));
         promotion.click();
         Thread.sleep(2000);
         var product = webDriver.findElement(By.xpath("//app-goods-tile-default/div/div[2]/a[2]/span"));
         product.click();
-        Thread.sleep(1000);
-        var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
+        Thread.sleep(1000);*/
+
+        /*var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
         buy.click();
         Thread.sleep(1000);
         var order = webDriver.findElement(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
@@ -141,10 +185,10 @@ public class SeleniumTest {
         surname.sendKeys("Фамилия");
         var name = webDriver.findElement(By.id("recipientName"));
         name.sendKeys("Имя");
-        var email = webDriver.findElement(By.id("recipientPatronymic"));
-        email.sendKeys("Отчество");
+        var patronymic = webDriver.findElement(By.id("recipientPatronymic"));
+        patronymic.sendKeys("Отчество");
         var number = webDriver.findElement(By.id("recipientTel"));
-        number.sendKeys("0661234567");
+        number.sendKeys("0661234567");*/
     }
 
     //DONE
@@ -153,7 +197,15 @@ public class SeleniumTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var languageUA = webDriver.findElement(By.xpath("//rz-header/header/div/div/ul/li[1]/rz-lang/ul/li[2]/a"));
+
+        LanguageUA languageUA = PageFactory.initElements(webDriver, LanguageUA.class);
+        languageUA.change();
+        CreateAccount create = PageFactory.initElements(webDriver, CreateAccount.class);
+        create.createUser("Имя", "Фамилия", "661234567", "email@gmail.com", "password");
+
+
+
+        /*var languageUA = webDriver.findElement(By.xpath("//rz-header/header/div/div/ul/li[1]/rz-lang/ul/li[2]/a"));
         languageUA.click();
         var user = webDriver.findElement(By.xpath("//rz-header/header/div/div/ul/li[3]/rz-user"));
         user.click();
@@ -169,6 +221,6 @@ public class SeleniumTest {
         var email = webDriver.findElement(By.id("registerUserEmail"));
         email.sendKeys("email@gmail.com");
         var password = webDriver.findElement(By.id("registerUserPassword"));
-        password.sendKeys("password");
+        password.sendKeys("password");*/
     }
 }
