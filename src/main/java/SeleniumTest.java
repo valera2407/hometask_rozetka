@@ -10,28 +10,35 @@ public class SeleniumTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
-        var search = webDriver.findElement(By.xpath("//input"));
+        var search = webDriver.findElement(By.xpath
+                ("//input"));
         search.sendKeys("acer swift");
-        var find = webDriver.findElement(By.xpath("//rz-header/header/div/div/div/form/button"));
+        var find = webDriver.findElement(By.xpath
+                ("//rz-header/header/div/div/div/form/button"));
         find.click();
         Thread.sleep(1000);
         var laptop = webDriver.findElement(By.xpath
                 ("//app-goods-tile-default/div/div[2]"));
         laptop.click();
         Thread.sleep(1000);
-        var element = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/button"));
+        var element = webDriver.findElement(By.xpath
+                ("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/button"));
         element.click();
         Thread.sleep(1000);
-        var back = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-product/div/rz-product-top/div/app-breadcrumbs/ul/li[4]/a"));
+        var back = webDriver.findElement(By.xpath
+                ("//rz-product/div/rz-product-top/div/app-breadcrumbs/ul/li[4]/a"));
         back.click();
         Thread.sleep(1000);
-        var laptop2 = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-category/div/main/rz-catalog/div/div/section/rz-grid/ul/li[3]/app-goods-tile-default/div/div[2]"));
+        var laptop2 = webDriver.findElement(By.xpath
+                ("//section/rz-grid/ul/li[3]/app-goods-tile-default/div/div[2]"));
         laptop2.click();
         Thread.sleep(1000);
-        var element2 = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/button"));
+        var element2 = webDriver.findElement(By.xpath
+                ("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/button"));
         element2.click();
         Thread.sleep(1000);
-        var element3 = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/a/button"));
+        var element3 = webDriver.findElement(By.xpath
+                ("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/a/button"));
         element3.click();
     }
 
@@ -53,7 +60,7 @@ public class SeleniumTest {
         var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/app-goods-kit/section/app-slider/div[1]/div/ul/li[1]/app-kit-details/div/div/div/app-kit-price/div/app-buy-button-kits"));
         buy.click();
         Thread.sleep(1000);
-        var order = webDriver.findElement(By.xpath("/html/body/app-root/single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
+        var order = webDriver.findElement(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
         order.click();
         Thread.sleep(1000);
         var surname = webDriver.findElement(By.id("recipientSurname"));
@@ -93,7 +100,7 @@ public class SeleniumTest {
         var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
         buy.click();
         Thread.sleep(1000);
-        var order = webDriver.findElement(By.xpath("/html/body/app-root/single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
+        var order = webDriver.findElement(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
         order.click();
         Thread.sleep(2000);
         var surname = webDriver.findElement(By.id("recipientSurname"));
@@ -104,7 +111,7 @@ public class SeleniumTest {
         email.sendKeys("Отчество");
         var number = webDriver.findElement(By.id("recipientTel"));
         number.sendKeys("0661234567");
-        var copyInfo = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-checkout-main/section/rz-checkout-orders/rz-checkout-orders-content/div/form/div/main/rz-checkout-order[1]/div/div[2]/rz-copy-order-button/div/button"));
+        var copyInfo = webDriver.findElement(By.xpath("//rz-checkout-orders-content/div/form/div/main/rz-checkout-order[1]/div/div[2]/rz-copy-order-button/div/button"));
         copyInfo.click();
     }
 
@@ -115,19 +122,19 @@ public class SeleniumTest {
         webDriver.get("https://rozetka.com.ua/");
         var closeCross = webDriver.findElement(By.xpath("//*[@id=\"rz-banner\"]/span/span"));
         closeCross.click();
-        var allPromotions = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-main-page/div/main/main-page-content/top-slider/ul/li/a"));
+        var allPromotions = webDriver.findElement(By.xpath("//main-page-content/top-slider/ul/li/a"));
         allPromotions.click();
         Thread.sleep(1000);
-        var promotion = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-promotions/div/main/rz-catalog/div/div/section/rz-grid/ul/li[5]/rz-promotion-tile/a/span/span"));
+        var promotion = webDriver.findElement(By.xpath("//section/rz-grid/ul/li[5]/rz-promotion-tile/a/span/span"));
         promotion.click();
-        Thread.sleep(1000);
-        var freezer = webDriver.findElement(By.xpath("/html/body/app-root/div/div/rz-promotion/div/main/rz-catalog/div/div/section/rz-grid/ul/li[1]/app-goods-tile-default/div/div[2]/a[2]/span"));
-        freezer.click();
+        Thread.sleep(2000);
+        var product = webDriver.findElement(By.xpath("//app-goods-tile-default/div/div[2]/a[2]/span"));
+        product.click();
         Thread.sleep(1000);
         var buy = webDriver.findElement(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div[1]/div/ul/li[1]/app-product-buy-btn/app-buy-button/button"));
         buy.click();
         Thread.sleep(1000);
-        var order = webDriver.findElement(By.xpath("/html/body/app-root/single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
+        var order = webDriver.findElement(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a"));
         order.click();
         Thread.sleep(2000);
         var surname = webDriver.findElement(By.id("recipientSurname"));
