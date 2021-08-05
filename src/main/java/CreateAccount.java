@@ -1,5 +1,9 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateAccount {
 
@@ -28,9 +32,11 @@ public class CreateAccount {
                            String surname,
                            String number,
                            String email,
-                           String password) throws InterruptedException {
+                           String password,
+                           WebDriver webDriver) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(webDriver, 10);
         user.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Зареєструватися")));
         create.click();
         this.name.sendKeys(name);
         this.surname.sendKeys(surname);

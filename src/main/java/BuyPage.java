@@ -1,5 +1,9 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BuyPage {
 
@@ -24,22 +28,24 @@ public class BuyPage {
     @FindBy(xpath = "//rz-checkout-orders-content/div/form/div/main/rz-checkout-order[1]/div/div[2]/rz-copy-order-button/div/button")
     WebElement copyInfo;
 
-    public void buyProduct() throws InterruptedException {
+    public void buyProduct(WebDriver webDriver) {
+        WebDriverWait wait = new WebDriverWait(webDriver, 10);
         buy.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a")));
         order.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("recipientSurname")));
         surname.sendKeys("Фамилия");
         name.sendKeys("Имя");
         patronymic.sendKeys("Отчество");
         number.sendKeys("0661234567");
     }
 
-    public void buyAndCopy() throws InterruptedException {
+    public void buyAndCopy(WebDriver webDriver) {
+        WebDriverWait wait = new WebDriverWait(webDriver, 10);
         buy.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//single-modal-window/div[2]/div[2]/rz-shopping-cart/div/div[1]/div/a")));
         order.click();
-        Thread.sleep(1000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("recipientSurname")));
         surname.sendKeys("Фамилия");
         name.sendKeys("Имя");
         patronymic.sendKeys("Отчество");
