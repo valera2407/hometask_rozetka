@@ -28,7 +28,7 @@ public class SeleniumTest {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//rz-product/div/rz-product-top/div/app-breadcrumbs/ul/li[4]/a")));
         laptops.openSecond(webDriver);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//rz-product-top/div/div[2]/a")));
-        actions.moveToElement(webDriver.findElement(By.xpath("//rz-product-top/div/div[2]/a"))).perform();;
+        actions.moveToElement(webDriver.findElement(By.xpath("//rz-product-top/div/div[2]/a"))).perform();
         findAndComprasion.addProductToList(webDriver);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"#scrollArea\"]/div[1]/div[2]/rz-product-main-info/div/div/ul/li[3]/ul/li[1]/app-compare-button/a/button")));
         findAndComprasion.compareProducts();
@@ -69,7 +69,7 @@ public class SeleniumTest {
 
     //DONE
     @Test
-    public void rozetkaTest2() throws InterruptedException {
+    public void rozetkaTest2() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
@@ -110,7 +110,7 @@ public class SeleniumTest {
 
     //DONE
     @Test
-    public void rozetkaTest3() throws InterruptedException {
+    public void rozetkaTest3() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
@@ -164,7 +164,7 @@ public class SeleniumTest {
 
 
     @Test
-    public void rozetkaTest4() throws InterruptedException {
+    public void rozetkaTest4() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");
@@ -210,7 +210,7 @@ public class SeleniumTest {
 
     //DONE
     @Test
-    public void rozetkaTest5() throws InterruptedException {
+    public void rozetkaTest5() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         webDriver.get("https://rozetka.com.ua/");

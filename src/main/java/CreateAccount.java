@@ -33,7 +33,7 @@ public class CreateAccount {
                            String number,
                            String email,
                            String password,
-                           WebDriver webDriver) throws InterruptedException {
+                           WebDriver webDriver) {
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         user.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Зареєструватися")));
