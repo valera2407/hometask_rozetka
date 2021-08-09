@@ -26,8 +26,8 @@ public class FindPhone {
 
     public void findSamsung() {
         $(phone).should(Condition.appear).click();
-        $(samsung).should(Condition.visible).click();
-        $(samsungModel).should(Condition.visible).click();
+        $(samsung).should(Condition.appear).click();
+        $(samsungModel).should(Condition.appear).click();
 
     }
 }

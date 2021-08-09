@@ -18,7 +18,7 @@ public class BuyPage {
 
 
     public void buyProduct() {
-        $(buy).should(Condition.appear).click();
+        $(buy).should(Condition.visible).click();
         $(order).should(Condition.appear).click();
         $(surname).should(Condition.appear).sendKeys("Фамилия");
         $(name).sendKeys("Имя");

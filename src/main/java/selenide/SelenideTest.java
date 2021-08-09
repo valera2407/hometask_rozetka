@@ -1,6 +1,7 @@
 package selenide;
 
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;

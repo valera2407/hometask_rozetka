@@ -16,7 +16,7 @@ public class Laptops {
     }
 
     public void openSecond() {
-        $(anotherLaptops).click();
+        $(anotherLaptops).should(Condition.visible).click();
         $(secondLaptop).should(Condition.appear).click();
     }
 }
